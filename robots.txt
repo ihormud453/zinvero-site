@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# GEO: дозвіл на індексацію для AI-краулерів
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://zinvero-hvac.vercel.app/sitemap.xml
