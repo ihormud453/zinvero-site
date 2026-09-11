@@ -295,6 +295,13 @@
     .hero-card{padding:var(--xl) var(--md);}
     .side-tag{display:none;}
     .ghost-num{display:none;}
+    /* Хедер на мобільному: менше бокових полів, компактніші лого і CTA, щоб кнопка не вилазила */
+    .container{padding:0 var(--md);}
+    .header-inner{gap:var(--sm); flex-wrap:nowrap;}
+    .logo{flex:0 0 auto; min-width:0;}
+    .logo img{height:20px;}
+    .header-cta{flex:0 0 auto;}
+    .header-cta .btn{padding:9px 15px; font-size:13px;}
   }
 
   /* ---------- Декоративний технічний шар ---------- */
