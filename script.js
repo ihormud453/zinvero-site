@@ -119,6 +119,8 @@
           if(result.ok && result.data && result.data.ok){
             showMessage('Dziękujemy! Zgłoszenie przyjęte — odezwiemy się wkrótce.', 'success');
             form.reset();
+            // Konwersja: zgłoszenie leada (tylko gdy GA załadowane po zgodzie)
+            if(window.gtag){ window.gtag('event', 'generate_lead'); }
           } else {
             showMessage('Nie udało się wysłać. Spróbuj ponownie lub zadzwoń: +48 886 645 244.', 'error');
           }
@@ -132,4 +134,74 @@
         });
     });
   });
+})();
+
+// Zgoda na cookies (GDPR) + Google Analytics (GA4) — ładowane WYŁĄCZNIE po akceptacji
+(function(){
+  var GA_ID = 'G-PKWXLKMBMQ';
+  var KEY = 'zinvero_cookie_consent'; // 'granted' | 'denied'
+  var gaLoaded = false;
+
+  function readConsent(){
+    try { return localStorage.getItem(KEY); } catch(e){ return null; }
+  }
+  function saveConsent(v){
+    try { localStorage.setItem(KEY, v); } catch(e){}
+  }
+
+  function loadGA(){
+    if(gaLoaded || !GA_ID) return;
+    gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  function buildBanner(){
+    var wrap = document.createElement('div');
+    wrap.className = 'cookie-banner';
+    wrap.setAttribute('role', 'dialog');
+    wrap.setAttribute('aria-live', 'polite');
+    wrap.setAttribute('aria-label', 'Zgoda na pliki cookie');
+
+    var p = document.createElement('p');
+    p.innerHTML = 'Ta strona używa plików cookie do anonimowej analizy ruchu (Google Analytics), aby stale ją ulepszać. Możesz zaakceptować lub odrzucić.';
+
+    var actions = document.createElement('div');
+    actions.className = 'cookie-actions';
+
+    var reject = document.createElement('button');
+    reject.type = 'button';
+    reject.className = 'cookie-btn cookie-reject';
+    reject.textContent = 'Odrzuć';
+
+    var accept = document.createElement('button');
+    accept.type = 'button';
+    accept.className = 'cookie-btn cookie-accept';
+    accept.textContent = 'Akceptuję';
+
+    function close(){ if(wrap.parentNode){ wrap.parentNode.removeChild(wrap); } }
+
+    accept.addEventListener('click', function(){ saveConsent('granted'); close(); loadGA(); });
+    reject.addEventListener('click', function(){ saveConsent('denied'); close(); });
+
+    actions.appendChild(reject);
+    actions.appendChild(accept);
+    wrap.appendChild(p);
+    wrap.appendChild(actions);
+    document.body.appendChild(wrap);
+  }
+
+  var consent = readConsent();
+  if(consent === 'granted'){
+    loadGA();
+  } else if(consent !== 'denied'){
+    if(document.body){ buildBanner(); }
+    else { document.addEventListener('DOMContentLoaded', buildBanner); }
+  }
 })();
