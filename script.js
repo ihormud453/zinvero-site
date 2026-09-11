@@ -205,3 +205,18 @@
     else { document.addEventListener('DOMContentLoaded', buildBanner); }
   }
 })();
+
+// Śledzenie kluczowych kliknięć kontaktowych (tylko po zgodzie — gdy gtag istnieje)
+(function(){
+  document.addEventListener('click', function(e){
+    if(!window.gtag) return;
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if(!a) return;
+    var href = (a.getAttribute('href') || '').toLowerCase();
+    if(href.indexOf('tel:') === 0){
+      window.gtag('event', 'contact_phone');
+    } else if(href.indexOf('mailto:') === 0){
+      window.gtag('event', 'contact_email');
+    }
+  }, true);
+})();
