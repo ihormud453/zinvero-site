@@ -170,7 +170,7 @@
     wrap.setAttribute('aria-label', 'Zgoda na pliki cookie');
 
     var p = document.createElement('p');
-    p.innerHTML = 'Ta strona używa plików cookie do anonimowej analizy ruchu (Google Analytics), aby stale ją ulepszać. Możesz zaakceptować lub odrzucić.';
+    p.innerHTML = 'Ta strona używa plików cookie, aby zapewnić lepsze działanie i stale ulepszać serwis. Możesz zaakceptować lub odrzucić.';
 
     var actions = document.createElement('div');
     actions.className = 'cookie-actions';
