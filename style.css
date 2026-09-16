@@ -651,3 +651,19 @@
     .cookie-btn{ flex:1 1 auto; }
   }
   @media (prefers-reduced-motion: reduce){ .cookie-banner{animation:none;} }
+
+  /* Allegro CTA — sprzedaż detaliczna */
+  .allegro-cta{
+    display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    margin-top:24px; padding:16px 20px;
+    background:var(--white); border:1px solid var(--divider); border-radius:var(--radius-md);
+  }
+  .allegro-txt{ display:flex; flex-direction:column; gap:2px; }
+  .allegro-txt strong{ font-size:15px; font-weight:600; color:var(--black); }
+  .allegro-txt span{ font-size:13px; color:var(--text-secondary); }
+  .btn-allegro{ background:#ff5a00; color:var(--white); border:1px solid #ff5a00; white-space:nowrap; }
+  .btn-allegro:hover{ background:#e85200; border-color:#e85200; }
+  @media (max-width: 767px){
+    .allegro-cta{ padding:14px 16px; gap:12px; }
+    .allegro-cta .btn-allegro{ width:100%; }
+  }
