@@ -661,8 +661,9 @@
   .allegro-txt{ display:flex; flex-direction:column; gap:2px; }
   .allegro-txt strong{ font-size:15px; font-weight:600; color:var(--black); }
   .allegro-txt span{ font-size:13px; color:var(--text-secondary); }
-  .btn-allegro{ background:#ff5a00; color:var(--white); border:1px solid #ff5a00; white-space:nowrap; }
-  .btn-allegro:hover{ background:#e85200; border-color:#e85200; }
+  .btn-allegro{ background:var(--white); color:var(--black); border:1px solid #ff5a00; white-space:nowrap; gap:9px; }
+  .btn-allegro:hover{ background:#fff5ef; border-color:#e85200; }
+  .allegro-logo{ height:17px; width:auto; display:block; }
   @media (max-width: 767px){
     .allegro-cta{ padding:14px 16px; gap:12px; }
     .allegro-cta .btn-allegro{ width:100%; }
