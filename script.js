@@ -245,3 +245,15 @@
   nav.addEventListener('click',function(e){ if(e.target.closest('a')) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
 })();
+
+// Mega-menu hover intent (nie zamykaj zbyt latwo)
+(function(){
+  var mq=window.matchMedia('(min-width:1024px)');
+  var mega=document.querySelector('.has-mega');
+  if(!mega) return;
+  var t=null;
+  function show(){ if(!mq.matches) return; clearTimeout(t); mega.classList.add('mega-open'); }
+  function hide(){ if(!mq.matches) return; clearTimeout(t); t=setTimeout(function(){ mega.classList.remove('mega-open'); }, 280); }
+  mega.addEventListener('mouseenter', show);
+  mega.addEventListener('mouseleave', hide);
+})();

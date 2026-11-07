@@ -103,7 +103,7 @@
   </div>
 </section>
 
-<main class="bg-gray"><div class="container" id="catalog" style="padding-top:var(--xl);"></div></main>
+<main class="bg-gray"><div class="container" style="padding-top:var(--xl);"><div class="catalog-layout"><aside class="cat-nav" id="cat-nav" aria-label="Kategorie"></aside><div id="catalog"></div></div></div></main>
 
 <section class="bg-white" style="padding-top:0;" id="actuators-lead">
   <div class="container">
@@ -231,6 +231,25 @@ CATS.forEach(function(C,ci){
     '<div class="product-grid reveal-group">'+cards+'</div>';
   cat.appendChild(sec);
 });
+
+// Lewa nawigacja kategorii + scroll-spy
+(function(){
+  var nav=document.getElementById('cat-nav');
+  if(!nav) return;
+  nav.innerHTML='<div class="cat-nav-inner"><h4>Kategorie</h4><ul>'+CATS.map(function(C){return '<li><a href="#'+C.slug+'">'+esc(C.name)+'</a></li>';}).join('')+'</ul></div>';
+  var links=nav.querySelectorAll('a');
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if(en.isIntersecting){
+          var id=en.target.id;
+          links.forEach(function(x){ x.classList.toggle('active', x.getAttribute('href')==='#'+id); });
+        }
+      });
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    CATS.forEach(function(C){ var s=document.getElementById(C.slug); if(s) spy.observe(s); });
+  }
+})();
 
 /* reveal dla dynamicznie dodanych sekcji (script.js obserwuje tylko elementy z czasu ładowania) */
 (function(){
