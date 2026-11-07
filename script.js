@@ -220,3 +220,28 @@
     }
   }, true);
 })();
+
+// Mobile nav drawer (hamburger)
+(function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var nav=document.getElementById('mainnav');
+  if(!toggle||!nav) return;
+  var backdrop=null;
+  function open(){
+    nav.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.classList.add('nav-open');
+    if(!backdrop){ backdrop=document.createElement('div'); backdrop.className='nav-backdrop'; backdrop.addEventListener('click',close); document.body.appendChild(backdrop); }
+    backdrop.style.display='block';
+    requestAnimationFrame(function(){ backdrop.style.opacity='1'; });
+  }
+  function close(){
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+    if(backdrop){ backdrop.style.opacity='0'; setTimeout(function(){ if(backdrop) backdrop.style.display='none'; },200); }
+  }
+  toggle.addEventListener('click',function(){ nav.classList.contains('open')?close():open(); });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();

@@ -34,18 +34,48 @@
 </head>
 <body>
 
-<header class="bg-white divider-bottom">
+<header class="bg-white divider-bottom site-header">
   <div class="container header-inner">
     <a href="index.html" class="logo">
       <img src="logo.png" alt="Zinvero">
     </a>
-    <nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mainnav"><span></span><span></span><span></span></button>
+    <nav class="mainnav" id="mainnav" aria-label="Menu glowne">
       <ul>
-        <li><a href="actuators.html">Siłowniki</a></li>
+        <li><a href="index.html">Strona glowna</a></li>
+        <li><a href="o-nas.html">O nas</a></li>
+        <li class="has-mega">
+          <a href="actuators.html" class="mega-trigger">Produkty <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <div class="mega">
+            <div class="container mega-grid">
+              <div class="mega-col">
+                <h4>Si&#322;owniki</h4>
+                <a href="actuators.html#bez-sprezyny"><b>Si&#322;owniki bez spr&#281;&#380;yny powrotnej</b><span>SP02N &middot; SP04N &middot; SP08N &middot; SP16N &middot; SP24N &middot; SP32N</span></a>
+                <a href="actuators.html#ze-sprezyna"><b>Si&#322;owniki ze spr&#281;&#380;yn&#261; powrotn&#261;</b><span>SP03S &middot; SP05S &middot; SP10S &middot; SP15S</span></a>
+                <a href="actuators.html#zawory"><b>Do zawor&#243;w kulowych</b><span>SP2N &middot; SP4N &middot; SP5N</span></a>
+                <a href="actuators.html#zawory"><b>Do zawor&#243;w grzybkowych</b><span>ILJA &middot; ILHA &middot; ILXA</span></a>
+              </div>
+              <div class="mega-col">
+                <h4>Zawory regulacyjne</h4>
+                <a href="actuators.html#zawory"><b>Zawory kulowe</b><span>CV2 &middot; CV3</span></a>
+                <a href="actuators.html#zawory"><b>Zawory grzybkowe</b><span>gwintowane: ILJV &middot; ko&#322;nierzowe: ILHV, ILXV</span></a>
+              </div>
+              <div class="mega-col">
+                <h4>Sterowniki i przetworniki</h4>
+                <a href="actuators.html#automatyka"><b>Czujniki temperatury i wilgotno&#347;ci</b><span>ILH301-I &middot; ILH301-NV &middot; ILH311-C</span></a>
+                <a href="actuators.html#automatyka"><b>Termostaty</b><span>ILH102 &middot; ILH114</span></a>
+                <a href="actuators.html#automatyka"><b>Inne elementy automatyki</b><span>PSW &middot; PM-220</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="wsparcie.html">Wsparcie</a></li>
+        <li><a href="wspolpraca.html">Wsp&#243;&#322;praca</a></li>
       </ul>
     </nav>
     <div class="header-cta">
-      <a href="#actuators-lead" class="btn btn-primary">Zostaw zgłoszenie</a>
+      <a href="tel:+48886645244" class="header-phone">+48 886 645 244</a>
+      <a href="kontakt.html" class="btn btn-primary">Kontakt</a>
     </div>
   </div>
 </header>
@@ -133,7 +163,7 @@ function vS(code){return [
 ].map(function(r){return {model:code+r.s,ster:"otwórz/zamknij (2-poz.)",nap:r.n,styk:r.k,masa:"—"};});}
 
 var CATS=[
- {id:"bez",name:"Siłowniki bez sprężyny powrotnej",img:"images/actuator-without-spring.jpg",pdf:"files/actuator-without-spring.pdf",
+ {id:"bez",slug:"bez-sprezyny",name:"Siłowniki bez sprężyny powrotnej",img:"images/actuator-without-spring.jpg",pdf:"files/actuator-without-spring.pdf",
   desc:"Do przepustnic powietrza w wentylacji i klimatyzacji. Moment 2–32 Nm.",fam:[
    {c:"SP02N",nm:"2 Nm",a:"< 0,4 m²",st:["2/3-punktowe","2-10V"],v:vN("SP02N",{"24":"0,49","24S":"0,53","24M":"0,50","24MS":"0,54","220":"0,51","220S":"0,55"})},
    {c:"SP04N",nm:"4 Nm",a:"< 0,8 m²",st:["2/3-punktowe","2-10V/0(4)-20mA"],v:vN("SP04N",{"24":"0,9","24S":"0,9","24M":"0,9","24MS":"0,9","220":"1,0","220S":"1,0"})},
@@ -141,18 +171,18 @@ var CATS=[
    {c:"SP16N",nm:"16 Nm",a:"< 3,0 m²",st:["2/3-punktowe","2-10V/0(4)-20mA"],v:vN("SP16N")},
    {c:"SP24N",nm:"24 Nm",a:"< 4,5 m²",st:["2/3-punktowe","2-10V"],v:vN("SP24N")},
    {c:"SP32N",nm:"32 Nm",a:"< 6,0 m²",st:["2/3-punktowe","2-10V"],v:vN("SP32N")}]},
- {id:"ze",name:"Siłowniki ze sprężyną powrotną",img:"images/z-pruzynoyu.jpeg",pdf:"files/actuator-with-spring.pdf",safety:true,
+ {id:"ze",slug:"ze-sprezyna",name:"Siłowniki ze sprężyną powrotną",img:"images/z-pruzynoyu.jpeg",pdf:"files/actuator-with-spring.pdf",safety:true,
   desc:"Z funkcją bezpieczeństwa — sprężyna powrotna przy zaniku zasilania. Moment 3–15 Nm.",fam:[
    {c:"SP03S",nm:"3 Nm",a:"< 0,75 m²",st:["otwórz/zamknij"],v:vS("SP03S")},
    {c:"SP05S",nm:"5 Nm",a:"< 1,0 m²",st:["otwórz/zamknij"],v:vS("SP05S")},
    {c:"SP10S",nm:"10 Nm",a:"< 2,0 m²",st:["otwórz/zamknij"],v:vS("SP10S")},
    {c:"SP15S",nm:"15 Nm",a:"< 3,0 m²",st:["otwórz/zamknij"],v:vS("SP15S")}]},
- {id:"fire",name:"Siłowniki do klap przeciwpożarowych",img:"images/actuator-fire-damper.jpg",pdf:"files/actuator-fire-damper.pdf",safety:true,
+ {id:"fire",slug:"ppoz",name:"Siłowniki do klap przeciwpożarowych",img:"images/actuator-fire-damper.jpg",pdf:"files/actuator-fire-damper.pdf",safety:true,
   desc:"Ze sprężyną powrotną, do systemów oddymiania i ochrony ppoż. Moment 3–15 Nm.",fam:[
    {c:"FS03S",nm:"3 Nm",a:"< 0,75 m²",st:["otwórz/zamknij"],v:vS("FS03S")},
    {c:"FS05S",nm:"5 Nm",a:"< 1,0 m²",st:["otwórz/zamknij"],v:vS("FS05S")},
    {c:"FS10S",nm:"10 Nm",a:"< 2,0 m²",st:["otwórz/zamknij"],v:vS("FS10S")}]},
- {id:"kul",name:"Zawory kulowe i grzybkowe z siłownikami",img:"images/kulovi-krany.jpeg",pdf:"files/ball-valves.pdf",
+ {id:"kul",slug:"zawory",name:"Zawory kulowe i grzybkowe z siłownikami",img:"images/kulovi-krany.jpeg",pdf:"files/ball-valves.pdf",
   desc:"Zawory kulowe (2-/3-drogowe) oraz duże zawory grzybkowe z siłownikami serii ILJA/ILHA/ILXA.",fam:[
    {c:"SP2N",nm:"2 Nm",a:"< 0,4 m²",st:["2/3-punktowe","2-10V"],v:vN("SP2N")},
    {c:"SP4N",nm:"4 Nm",a:"< 0,8 m²",st:["2/3-punktowe","2-10V"],v:vN("SP4N")},
@@ -163,7 +193,7 @@ var CATS=[
     v:[{model:"ILHA-12 (M)",ster:"2/3-punktowe / 2-10V",nap:"24 V / 230 V",styk:"—",masa:"—"},{model:"ILHA-18 (M)",ster:"2/3-punktowe / 2-10V",nap:"24 V / 230 V",styk:"—",masa:"—"}]},
    {c:"ILXA",nm:"3000–5000 Nm",a:"zawory ILXV",st:["2/3-punktowe","2-10V"],big:true,img:"images/globe-valves.jpg",pdf:"files/globe-valves.pdf",
     v:[{model:"ILXA-30 (M)",ster:"2/3-punktowe / 2-10V",nap:"24 V / 230 V",styk:"—",masa:"—"},{model:"ILXA-50 (M)",ster:"2/3-punktowe / 2-10V",nap:"24 V / 230 V",styk:"—",masa:"—"}]}]},
- {id:"inne",name:"Inne elementy automatyki",img:"images/datchyk-rele.jpeg",pdf:"files/sensors-relays.pdf",simple:true,
+ {id:"inne",slug:"automatyka",name:"Inne elementy automatyki",img:"images/datchyk-rele.jpeg",pdf:"files/sensors-relays.pdf",simple:true,
   desc:"Osprzęt uzupełniający: presostaty, pozycjonery, czujniki i termostaty.",fam:[
    {c:"Presostaty",a:"powietrze / woda",d:"Presostaty do kontroli ciśnienia w kanałach i instalacjach.",v:[]},
    {c:"Pozycjoner",a:"sygnał analog.",d:"Pozycjoner do siłowników — precyzyjne pozycjonowanie wg sygnału analogowego.",v:[]},
@@ -195,7 +225,7 @@ CATS.forEach(function(C,ci){
       '<div class="product-actions"><a href="'+pdf+'" class="btn btn-outline" target="_blank" rel="noopener">Pobierz kartę katalogową</a>'+
       '<a class="btn btn-primary" data-var="'+idx+'">Zapytaj o wycenę</a></div></div>';
   }).join('');
-  var sec=document.createElement('section'); sec.className="cat-section";
+  var sec=document.createElement('section'); sec.className="cat-section"; sec.id=C.slug||"";
   sec.innerHTML='<div class="section-head reveal"><span class="ghost-num">0'+(ci+1)+'</span>'+
     '<div class="eyebrow"><span class="dot"></span>'+esc(C.name)+'</div><h2>'+esc(C.name)+'</h2></div>'+
     '<div class="product-grid reveal-group">'+cards+'</div>';

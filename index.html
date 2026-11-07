@@ -107,18 +107,48 @@
 <body>
 
 
-<header class="bg-white divider-bottom">
+<header class="bg-white divider-bottom site-header">
   <div class="container header-inner">
-    <div class="logo">
+    <a href="index.html" class="logo">
       <img src="logo.png" alt="Zinvero">
-    </div>
-    <nav>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mainnav"><span></span><span></span><span></span></button>
+    <nav class="mainnav" id="mainnav" aria-label="Menu glowne">
       <ul>
-        <li><a href="actuators.html">Siłowniki</a></li>
+        <li><a href="index.html">Strona glowna</a></li>
+        <li><a href="o-nas.html">O nas</a></li>
+        <li class="has-mega">
+          <a href="actuators.html" class="mega-trigger">Produkty <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <div class="mega">
+            <div class="container mega-grid">
+              <div class="mega-col">
+                <h4>Si&#322;owniki</h4>
+                <a href="actuators.html#bez-sprezyny"><b>Si&#322;owniki bez spr&#281;&#380;yny powrotnej</b><span>SP02N &middot; SP04N &middot; SP08N &middot; SP16N &middot; SP24N &middot; SP32N</span></a>
+                <a href="actuators.html#ze-sprezyna"><b>Si&#322;owniki ze spr&#281;&#380;yn&#261; powrotn&#261;</b><span>SP03S &middot; SP05S &middot; SP10S &middot; SP15S</span></a>
+                <a href="actuators.html#zawory"><b>Do zawor&#243;w kulowych</b><span>SP2N &middot; SP4N &middot; SP5N</span></a>
+                <a href="actuators.html#zawory"><b>Do zawor&#243;w grzybkowych</b><span>ILJA &middot; ILHA &middot; ILXA</span></a>
+              </div>
+              <div class="mega-col">
+                <h4>Zawory regulacyjne</h4>
+                <a href="actuators.html#zawory"><b>Zawory kulowe</b><span>CV2 &middot; CV3</span></a>
+                <a href="actuators.html#zawory"><b>Zawory grzybkowe</b><span>gwintowane: ILJV &middot; ko&#322;nierzowe: ILHV, ILXV</span></a>
+              </div>
+              <div class="mega-col">
+                <h4>Sterowniki i przetworniki</h4>
+                <a href="actuators.html#automatyka"><b>Czujniki temperatury i wilgotno&#347;ci</b><span>ILH301-I &middot; ILH301-NV &middot; ILH311-C</span></a>
+                <a href="actuators.html#automatyka"><b>Termostaty</b><span>ILH102 &middot; ILH114</span></a>
+                <a href="actuators.html#automatyka"><b>Inne elementy automatyki</b><span>PSW &middot; PM-220</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="wsparcie.html">Wsparcie</a></li>
+        <li><a href="wspolpraca.html">Wsp&#243;&#322;praca</a></li>
       </ul>
     </nav>
     <div class="header-cta">
-      <a href="#contact" class="btn btn-primary">Zostaw zgłoszenie</a>
+      <a href="tel:+48886645244" class="header-phone">+48 886 645 244</a>
+      <a href="kontakt.html" class="btn btn-primary">Kontakt</a>
     </div>
   </div>
 </header>
