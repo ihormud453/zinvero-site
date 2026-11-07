@@ -9,6 +9,7 @@
     { "src": "*.png", "use": "@vercel/static" },
     { "src": "*.jpg", "use": "@vercel/static" },
     { "src": "*.jpeg", "use": "@vercel/static" },
+    { "src": "*.webp", "use": "@vercel/static" },
     { "src": "*.pdf", "use": "@vercel/static" },
     { "src": "*.xml", "use": "@vercel/static" },
     { "src": "*.txt", "use": "@vercel/static" }
